@@ -22,12 +22,15 @@ function setInputError(inputElement, message) {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
     const createAccountForm = document.querySelector("#createAccount");
-    const resetPassword = document.querySelector("#resetPassword")
+    const resetPassword = document.querySelector("#resetPassword");
+    const title = document.querySelector("#title__nameID");
 
     document.querySelector("#linkCreateAccount").addEventListener("click", e=> {
         e.preventDefault();
         loginForm.classList.add("form--hidden");
         createAccountForm.classList.remove("form--hidden")
+        title.classList.remove("title__name")
+        title.classList.add("title__name--moveup")
     });
 
     document.querySelector("#passResetLink").addEventListener("click", e=> {
@@ -41,7 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#linkLogin").addEventListener("click", e=> {
         e.preventDefault();
         loginForm.classList.remove("form--hidden");
-        createAccountForm.classList.add("form--hidden")
+        createAccountForm.classList.add("form--hidden");
+        title.classList.remove("title__name--moveup");
+        title.classList.add("title__name");
     });
 
     document.querySelector("#backToLoginLink").addEventListener("click", e=> {
